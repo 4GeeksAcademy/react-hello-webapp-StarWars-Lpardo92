@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+
 const Characters = ({ uid, nombre, addFavorite, removeFavorite, isFavorite }) => {
   const toggleFavorite = () => {
     if (!isFavorite) {
@@ -10,6 +11,7 @@ const Characters = ({ uid, nombre, addFavorite, removeFavorite, isFavorite }) =>
       removeFavorite(nombre);
     }
   };
+
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img src="/src/assets/img/rigo-baby.jpg" className="card-img-top" alt={nombre} />
@@ -26,25 +28,15 @@ const Characters = ({ uid, nombre, addFavorite, removeFavorite, isFavorite }) =>
             }}
           />
         </div>
-        <Link to={`/CharacterDetails/${uid}`} className="btn btn-primary">
+        <Link
+          to={`/CharacterDetails/${uid}`}
+          className="btn btn-warning d-block mx-auto"
+        >
           Learn More
         </Link>
       </div>
     </div>
   );
 };
+
 export default Characters;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

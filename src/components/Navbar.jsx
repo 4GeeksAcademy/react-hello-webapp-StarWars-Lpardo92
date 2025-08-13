@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Dropdown as BootstrapDropdown } from "bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 export const Navbar = ({ favoritos = [], removeFavorite }) => {
   useEffect(() => {
     const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
@@ -12,8 +13,9 @@ export const Navbar = ({ favoritos = [], removeFavorite }) => {
       new BootstrapDropdown(dropdownToggleEl);
     });
   }, []);
+
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-dark bg-dark">
       <div className="container">
         <Link to="/">
           <img
@@ -26,14 +28,14 @@ export const Navbar = ({ favoritos = [], removeFavorite }) => {
         </Link>
         <div className="dropdown">
           <button
-            className="btn btn-primary dropdown-toggle"
+            className="btn btn-warning dropdown-toggle"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Favoritos
           </button>
-          <ul className="dropdown-menu">
+          <ul className="dropdown-menu dropdown-menu-end">
             {favoritos.length === 0 ? (
               <li><span className="dropdown-item-text">Empty!</span></li>
             ) : (
